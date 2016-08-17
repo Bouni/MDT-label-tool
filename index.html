@@ -40,7 +40,7 @@
     // Paper
     var paper = Snap("#svg");
 
-    paper.append(Snap.parse(glas))
+    paper.append(Snap.parse(glas).innerSVG())
     
     $(document).ready(function(){
         $("#download").on("click", function(){
