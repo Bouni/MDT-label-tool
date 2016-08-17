@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title></title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/milligram.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/snap.svg-min.js"></script>
+    <script src="js/data.js"></script>
+</head>
+<body>
+
+    <div class="container">  
+      <div class="row">
+        <div class="column">
+            <h1>MDT Glastaster Plus Beschriftung</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column"></div>
+        <div class="column text-center">
+            <svg id="svg" style="width:300px; height:530px"></svg>
+        </div>
+        <div class="column"></div>
+      </div>
+    
+      <div class="row">
+        <div class="column"></div>
+        <div class="column text-center">
+            <a href="#" id="download">Download SVG</a>
+        </div>
+        <div class="column"></div>
+      </div>
+   
+     </div>
+            
+    <script type="text/javascript" charset="utf-8">
+    // Paper
+    var paper = Snap("#svg");
+
+    paper.append(Snap.parse(glas))
+    
+    $(document).ready(function(){
+        $("#download").on("click", function(){
+            download(paper.outerSVG(), "MDT-Glastaster.svg", "image/svg+xml");
+        });
+    });
+
+    function download(text, name, type) {
+        var a = document.createElement("a");
+        var file = new Blob([text], {type: type});
+        a.href = URL.createObjectURL(file);
+        a.download = name;
+        a.click();
+    }
+
+    </script>
+</body>
+</html>
