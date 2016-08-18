@@ -21,12 +21,21 @@
         <div class="column">
         	<form id="button_options">
         		<fieldset>
-        		<caption>Tasteroptionen</caption>
+        		<caption>Tasterfarbe</caption>
         		<div>
+        			<input type="radio" id="black" name="color" value="#000000" checked="checked">
+			      	<label class="label-inline" for="black">Schwarz</label>
 			      	<input type="radio" id="white" name="color" value="#FFFFFF">
 			      	<label class="label-inline" for="white">Weiß</label>
-			      	<input type="radio" id="black" name="color" value="#000000">
-			      	<label class="label-inline" for="black">Schwarz</label>
+			    </div>
+			    </fieldset>
+			    <fieldset>
+        		<caption>Tastergröße</caption>
+        		<div>
+        			<input type="radio" id="eight" name="size" value="eight" checked="checked">
+			      	<label class="label-inline" for="eight">8-fach</label>
+			      	<input type="radio" id="four" name="size" value="four">
+			      	<label class="label-inline" for="four">4-fach</label>
 			    </div>
 			    </fieldset>
         	</form>
@@ -56,9 +65,11 @@
     });
     
     $(document).ready(function(){
+    	
         $("#download").on("click", function(){
             download(paper.outerSVG(), "MDT-Glastaster.svg", "image/svg+xml");
         });
+        
         $("input[name=color]:radio").change(function () {
             paper.select("#glas_svg").attr({fill:$(this).val()});
         });
