@@ -40,10 +40,8 @@
     // Paper
     var paper = Snap("#svg");
 
-    var glas;
-    
     Snap.load("./svg/glas.svg", function(data){
-    	glas = paper.append(data);
+    	paper.append(data);
     });
     
     $(document).ready(function(){
@@ -52,7 +50,7 @@
         });
         
         $("#color").on("click", function(){
-            glas.attr({fill:"#000000"});
+            console.log(paper.select("#glas_svg"));
         });
     });
 
