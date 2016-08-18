@@ -29,6 +29,7 @@
         <div class="column"></div>
         <div class="column text-center">
             <a href="#" id="download">Download SVG</a>
+            <a href="#" id="color">Farbe</a>
         </div>
         <div class="column"></div>
       </div>
@@ -38,14 +39,20 @@
     <script type="text/javascript" charset="utf-8">
     // Paper
     var paper = Snap("#svg");
-	
+
+    var glas;
+    
     Snap.load("./svg/glas.svg", function(data){
-    	paper.append(data);
+    	glas = paper.append(data);
     });
     
     $(document).ready(function(){
         $("#download").on("click", function(){
             download(paper.outerSVG(), "MDT-Glastaster.svg", "image/svg+xml");
+        });
+        
+        $("#color").on("click", function(){
+            console.log(glas);
         });
     });
 
