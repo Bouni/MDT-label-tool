@@ -23,9 +23,9 @@
         		<fieldset>
         		<caption>Tasteroptionen</caption>
         		<div>
-			      	<input type="radio" id="white" name="color">
+			      	<input type="radio" id="white" name="color" value="#FFFFFF">
 			      	<label class="label-inline" for="white">Weiß</label>
-			      	<input type="radio" id="black" name="color">
+			      	<input type="radio" id="black" name="color" value="#000000">
 			      	<label class="label-inline" for="black">Schwarz</label>
 			    </div>
 			    </fieldset>
@@ -41,7 +41,6 @@
         <div class="column"></div>
         <div class="column text-center">
             <a href="#" id="download">Download SVG</a>
-            <a href="#" id="color">Farbe</a>
         </div>
         <div class="column"></div>
       </div>
@@ -60,9 +59,8 @@
         $("#download").on("click", function(){
             download(paper.outerSVG(), "MDT-Glastaster.svg", "image/svg+xml");
         });
-        
-        $("#color").on("click", function(){
-            paper.select("#glas_svg").attr({fill:"#FFFFFF"});
+        $("input[name=color]:radio").change(function () {
+            paper.select("#glas_svg").attr({fill:$(this).val();});
         });
     });
 
