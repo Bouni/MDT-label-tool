@@ -39,13 +39,17 @@
     <script type="text/javascript" charset="utf-8">
     // Paper
     var paper = Snap("#svg");
-	
+	/*
     var glas_svg = Snap.parse(glas);
 
 	console.log(glas_svg);
 	console.log(glas_svg.innerSVG());
 
     paper.append(glas_svg)
+    */
+    Snap.load("./glas.svg", function(data){
+    	paper.append(data);
+    });
     
     $(document).ready(function(){
         $("#download").on("click", function(){
