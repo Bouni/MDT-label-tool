@@ -76,7 +76,7 @@
         
         $("input[name=size]:radio").change(function () {
 		    Snap.load("./svg/glas-" + $(this).val() + ".svg", function(data){
-		    	paper.remove("#glas_svg");
+		    	paper.remove("svg#svg2");
 		    	//paper.append(data);
 		    });
             paper.select("#glas_svg").attr({ fill : $("input[name=color]:checked").val() });
