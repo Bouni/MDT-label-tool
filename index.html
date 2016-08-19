@@ -32,9 +32,9 @@
 			    <fieldset>
         		<caption>Tastergröße</caption>
         		<div>
-        			<input type="radio" id="eight" name="size" value="eight" checked="checked">
+        			<input type="radio" id="eight" name="size" value="8" checked="checked">
 			      	<label class="label-inline" for="eight">8-fach</label>
-			      	<input type="radio" id="four" name="size" value="four">
+			      	<input type="radio" id="four" name="size" value="4">
 			      	<label class="label-inline" for="four">4-fach</label>
 			    </div>
 			    </fieldset>
@@ -60,7 +60,7 @@
     // Paper
     var paper = Snap("#svg");
 
-    Snap.load("./svg/glas.svg", function(data){
+    Snap.load("./svg/glas-8.svg", function(data){
     	paper.append(data);
     });
     
@@ -72,6 +72,13 @@
         
         $("input[name=color]:radio").change(function () {
             paper.select("#glas_svg").attr({fill:$(this).val()});
+        });
+        
+        $("input[name=size]:radio").change(function () {
+		    Snap.load("./svg/glas-" + $(this).val() + ".svg", function(data){
+		    	paper.remove("#glas_svg").append(data);
+		    });
+            paper.select("#glas_svg").attr({fill:$(input[name=color]:checked).val()});
         });
     });
 
