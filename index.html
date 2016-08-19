@@ -78,7 +78,7 @@
 		    Snap.load("./svg/glas-" + $(this).val() + ".svg", function(data){
 		    	paper.remove("#glas_svg").append(data);
 		    });
-            paper.select("#glas_svg").attr({fill:$(input[name=color]:checked).val()});
+            paper.select("#glas_svg").attr({ fill : $("input[name=color]:checked").val() });
         });
     });
 
